@@ -188,8 +188,8 @@ def load_model():
     from sam2.sam2_image_predictor import SAM2ImagePredictor
 
     if not os.path.exists(SAM2_CHECKPOINT):
-    os.makedirs(os.path.dirname(SAM2_CHECKPOINT), exist_ok=True)
-    urllib.request.urlretrieve(SAM2_CHECKPOINT_URL, SAM2_CHECKPOINT)
+        os.makedirs(os.path.dirname(SAM2_CHECKPOINT), exist_ok=True)
+        urllib.request.urlretrieve(SAM2_CHECKPOINT_URL, SAM2_CHECKPOINT)
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     sam2_model = build_sam2(SAM2_CONFIG, SAM2_CHECKPOINT, device=device)
